@@ -22,4 +22,6 @@ with open('ims.json') as data_file:
             # # then save the label
             segmented = image['Label']['objects'][0]['instanceURI']
             img = urllib.request.urlretrieve(segmented, f"masks/{i}.png")
+            img = Image.open(f"masks/{i}.png").convert('RGB')
+            img.save(f"masks/{i}.png")
            
